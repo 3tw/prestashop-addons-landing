@@ -1,25 +1,33 @@
 ---
+import bgImage from '../assets/images/better-top-banner/background.jpg';
+import itemsImage from '../assets/images/better-top-banner/multiple.png';
+
 interface Props {
   headline: string;
   subheadline: string;
   ctaText: string;
   ctaUrl: string;
   socialProof?: {
-    installs: string;
-    rating: string;
     compatibility: string;
+    price: string;
+    license: string;
   };
 }
 
 const { headline, subheadline, ctaText, ctaUrl, socialProof } = Astro.props;
 ---
 
-<section class="relative overflow-hidden bg-primary-dark" style="background: radial-gradient(ellipse at 50% 0%, #3C3489 0%, #26215C 70%);">
-  <!-- Decorative gradient blobs -->
-  <div class="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-on-dark-subtle/20 blur-3xl"></div>
-  <div class="pointer-events-none absolute -bottom-32 -right-32 h-[28rem] w-[28rem] rounded-full bg-primary/15 blur-3xl"></div>
+<section class="relative overflow-hidden bg-primary-dark">
+  <!-- Background image -->
+  <div
+    class="pointer-events-none absolute inset-0 bg-cover bg-center"
+    style={`background-image: url('${bgImage.src}');`}
+  ></div>
+  <!-- Dark overlay for text readability -->
+  <div class="pointer-events-none absolute inset-0 bg-primary-dark/70"></div>
 
   <div class="relative mx-auto max-w-6xl px-6 py-28 md:py-40 text-center">
+    <img src={itemsImage.src} class="object-contain max-w-[350px] mx-auto mb-8"/>
     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight max-w-4xl mx-auto">
       {headline}
     </h1>
@@ -31,7 +39,7 @@ const { headline, subheadline, ctaText, ctaUrl, socialProof } = Astro.props;
         href={ctaUrl}
         target="_blank"
         rel="noopener"
-        class="inline-block rounded-lg bg-white px-8 py-4 text-lg font-semibold text-primary-dark shadow-2xl hover:bg-primary-light hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
+        class="inline-block rounded-lg bg-primary px-8 py-4 text-lg font-semibold text-primary-dark shadow-2xl hover:bg-primary-light hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
       >
         {ctaText}
       </a>
@@ -42,22 +50,18 @@ const { headline, subheadline, ctaText, ctaUrl, socialProof } = Astro.props;
         See features
       </a>
     </div>
-    <p class="mt-6 text-sm text-on-dark-muted">Works with PrestaShop 8.x &bull; One-time purchase &bull; 30-day guarantee</p>
+    <p class="mt-6 text-sm text-on-dark-muted">No subscription &bull; No core overrides &bull; Full unobfuscated PHP source</p>
 
     {socialProof && (
       <div class="mt-16 border-t border-white/10 pt-8">
         <div class="flex flex-wrap justify-center gap-8 md:gap-16 text-center">
           <div>
-            <span class="text-2xl font-bold text-white">{socialProof.installs}</span>
-            <p class="text-sm text-on-dark-muted">Installs</p>
-          </div>
-          <div>
-            <span class="text-2xl font-bold text-white">{socialProof.rating}</span>
-            <p class="text-sm text-on-dark-muted">Average rating</p>
-          </div>
-          <div>
             <span class="text-2xl font-bold text-white">{socialProof.compatibility}</span>
-            <p class="text-sm text-on-dark-muted">Compatible</p>
+            <p class="text-sm text-on-dark-muted">Compatibility</p>
+          </div>
+          <div>
+            <span class="text-2xl font-bold text-white">{socialProof.price}</span>
+            <p class="text-sm text-on-dark-muted">Price</p>
           </div>
         </div>
       </div>

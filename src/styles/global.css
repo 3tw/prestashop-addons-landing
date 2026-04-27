@@ -1,36 +1,36 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /*
  * betteraddon — Design Tokens
  * ────────────────────────────
- * Primary scale (purple brand)
- *   primary-dark   #26215C  — dark backgrounds, headings on light
- *   primary-hover  #3C3489  — hover / active states
- *   primary        #534AB7  — buttons, links, accents
- *   primary-muted  #CECBF6  — light borders, icon tile bg
- *   primary-light  #EEEDFE  — tinted section backgrounds
+ * Primary scale (green/cyan brand)
+ *   primary-dark   #072818  — dark backgrounds, headings on light
+ *   primary-hover  #355643  — hover / active states
+ *   primary        #00c4ff  — buttons, links, accents
+ *   primary-muted  #d0fbe1  — light borders, icon tile bg
+ *   primary-light  #e8fdf0  — tinted section backgrounds
  *
  * On-dark text (for use on primary-dark backgrounds)
- *   on-dark        #CECBF6  — primary text
- *   on-dark-muted  #AFA9EC  — secondary text
- *   on-dark-subtle #7F77DD  — captions, footer body text
+ *   on-dark        #d0fbe1  — primary text
+ *   on-dark-muted  #a0d4b6  — secondary text
+ *   on-dark-subtle #6aad84  — captions, footer body text
  *
  * Neutral
  *   muted          #4B5563  — body text (neutral gray, WCAG AA)
  */
 
 @theme {
-  --color-primary: #534AB7;
-  --color-primary-hover: #3C3489;
-  --color-primary-dark: #26215C;
-  --color-primary-light: #EEEDFE;
-  --color-primary-muted: #CECBF6;
+  --color-primary: #00c4ff;
+  --color-primary-hover: #355643;
+  --color-primary-dark: #072818;
+  --color-primary-light: #e8fdf0;
+  --color-primary-muted: #d0fbe1;
 
-  --color-muted: #4B5563;
+  --color-muted: #4b5563;
 
-  --color-on-dark: #CECBF6;
-  --color-on-dark-muted: #AFA9EC;
-  --color-on-dark-subtle: #7F77DD;
+  --color-on-dark: #d0fbe1;
+  --color-on-dark-muted: #a0d4b6;
+  --color-on-dark-subtle: #6aad84;
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
@@ -38,6 +38,11 @@
 /* Smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
+}
+
+/* Link reset — anchors inherit color, no underline by default */
+a {
+  text-decoration: none;
 }
 
 /* Remove default details marker across browsers */

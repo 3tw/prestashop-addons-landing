@@ -5,6 +5,8 @@ interface Props {
   ogImage?: string;
 }
 
+import '../styles/global.css';
+
 const { title, description, ogImage = '/og-image.png' } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -30,9 +32,9 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
     <title>{title}</title>
-    <style>
-      @import '../styles/global.css';
-    </style>
+
+    <!-- Umami analytics -->
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="84b94f5c-ad8c-41a9-9db5-0eaef35091e4"></script>
   </head>
   <body class="font-sans text-muted antialiased">
     <slot />

@@ -4,6 +4,7 @@ import ModuleLayout from '../layouts/ModuleLayout.astro';
 import Hero from '../components/Hero.astro';
 import ProblemStatement from '../components/ProblemStatement.astro';
 import Features from '../components/Features.astro';
+import UseCases from '../components/UseCases.astro';
 import Screenshots from '../components/Screenshots.astro';
 import Pricing from '../components/Pricing.astro';
 import Faq from '../components/Faq.astro';
@@ -18,8 +19,14 @@ import CtaBanner from '../components/CtaBanner.astro';
     ctaUrl={module.ctaUrl}
     socialProof={module.socialProof}
   />
-  <ProblemStatement problems={module.problems} />
   <Features features={module.features} />
+  <ProblemStatement problems={module.problems} />
+  <UseCases
+  heading={module.useCases.heading}
+  intro={module.useCases.intro}
+  examples={module.useCases.examples}
+  closer={module.useCases.closer}
+  />
   <Screenshots screenshots={module.screenshots} />
   <Pricing
     price={module.pricing.price}
