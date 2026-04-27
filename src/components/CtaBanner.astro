@@ -1,0 +1,37 @@
+---
+interface Props {
+  headline: string;
+  subline: string;
+  ctaText: string;
+  ctaUrl: string;
+  guarantee: string;
+}
+
+const { headline, subline, ctaText, ctaUrl, guarantee } = Astro.props;
+---
+
+<section class="relative overflow-hidden bg-primary py-20 md:py-28">
+  <!-- Decorative gradient blobs -->
+  <div class="pointer-events-none absolute -top-20 -right-20 h-80 w-80 rounded-full bg-on-dark-subtle/20 blur-3xl"></div>
+  <div class="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-primary-hover/30 blur-3xl"></div>
+
+  <div class="relative mx-auto max-w-3xl px-6 text-center">
+    <h2 class="text-2xl md:text-3xl font-semibold text-white tracking-tight">
+      {headline}
+    </h2>
+    <p class="mt-3 text-on-dark">
+      {subline}
+    </p>
+    <div class="mt-8">
+      <a
+        href={ctaUrl}
+        target="_blank"
+        rel="noopener"
+        class="inline-block rounded-xl bg-white px-8 py-4 text-lg font-semibold text-primary-dark shadow-xl hover:shadow-2xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+      >
+        {ctaText}
+      </a>
+    </div>
+    <p class="mt-4 text-xs text-on-dark-muted/60">{guarantee}</p>
+  </div>
+</section>

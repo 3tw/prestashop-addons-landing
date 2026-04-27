@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+/*
+ * betteraddon — Design Tokens
+ * ────────────────────────────
+ * Primary scale (purple brand)
+ *   primary-dark   #26215C  — dark backgrounds, headings on light
+ *   primary-hover  #3C3489  — hover / active states
+ *   primary        #534AB7  — buttons, links, accents
+ *   primary-muted  #CECBF6  — light borders, icon tile bg
+ *   primary-light  #EEEDFE  — tinted section backgrounds
+ *
+ * On-dark text (for use on primary-dark backgrounds)
+ *   on-dark        #CECBF6  — primary text
+ *   on-dark-muted  #AFA9EC  — secondary text
+ *   on-dark-subtle #7F77DD  — captions, footer body text
+ *
+ * Neutral
+ *   muted          #4B5563  — body text (neutral gray, WCAG AA)
+ */
+
+@theme {
+  --color-primary: #534AB7;
+  --color-primary-hover: #3C3489;
+  --color-primary-dark: #26215C;
+  --color-primary-light: #EEEDFE;
+  --color-primary-muted: #CECBF6;
+
+  --color-muted: #4B5563;
+
+  --color-on-dark: #CECBF6;
+  --color-on-dark-muted: #AFA9EC;
+  --color-on-dark-subtle: #7F77DD;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove default details marker across browsers */
+details summary::-webkit-details-marker {
+  display: none;
+}

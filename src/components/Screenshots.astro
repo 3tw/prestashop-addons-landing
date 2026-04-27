@@ -1,0 +1,29 @@
+---
+interface Screenshot {
+  alt: string;
+}
+
+interface Props {
+  screenshots: Screenshot[];
+}
+
+const { screenshots } = Astro.props;
+---
+
+<section class="bg-white py-16 md:py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-center text-primary-dark">
+      See it in action
+    </h2>
+    <p class="mt-5 text-center text-muted max-w-xl mx-auto">
+      Here's what Better Top Banner looks like in your PrestaShop store.
+    </p>
+    <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {screenshots.map((screenshot) => (
+        <div class="rounded-2xl bg-primary-light border border-primary-muted aspect-video flex items-center justify-center text-on-dark-muted text-sm overflow-hidden shadow-sm">
+          <span>{screenshot.alt}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+---
+import { module } from '../content/modules/better-top-banner';
+import ModuleLayout from '../layouts/ModuleLayout.astro';
+import Hero from '../components/Hero.astro';
+import ProblemStatement from '../components/ProblemStatement.astro';
+import Features from '../components/Features.astro';
+import Screenshots from '../components/Screenshots.astro';
+import Pricing from '../components/Pricing.astro';
+import Faq from '../components/Faq.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+---
+
+<ModuleLayout title={module.meta.title} description={module.meta.description}>
+  <Hero
+    headline={module.headline}
+    subheadline={module.subheadline}
+    ctaText={module.ctaText}
+    ctaUrl={module.ctaUrl}
+    socialProof={module.socialProof}
+  />
+  <ProblemStatement problems={module.problems} />
+  <Features features={module.features} />
+  <Screenshots screenshots={module.screenshots} />
+  <Pricing
+    price={module.pricing.price}
+    period={module.pricing.period}
+    guarantee={module.pricing.guarantee}
+    includes={module.pricing.includes}
+    ctaText={module.ctaText}
+    ctaUrl={module.ctaUrl}
+  />
+  <Faq faq={module.faq} />
+  <CtaBanner
+    headline={module.ctaBanner.headline}
+    subline={module.ctaBanner.subline}
+    ctaText={module.ctaText}
+    ctaUrl={module.ctaUrl}
+    guarantee={module.pricing.guarantee}
+  />
+</ModuleLayout>

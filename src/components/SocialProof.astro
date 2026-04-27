@@ -1,0 +1,30 @@
+---
+interface Props {
+  installs: string;
+  rating: string;
+  compatibility: string;
+}
+
+const { installs, rating, compatibility } = Astro.props;
+---
+
+<section class="bg-white border-y border-primary-muted">
+  <div class="mx-auto max-w-6xl px-6 py-6">
+    <div class="flex flex-wrap justify-center gap-8 md:gap-16 text-center">
+      <div>
+        <span class="text-2xl font-bold text-primary-dark">{installs}</span>
+        <p class="text-sm text-muted">Installs</p>
+      </div>
+      <div class="flex items-center gap-1">
+        <div>
+          <span class="text-2xl font-bold text-primary-dark">{rating}</span>
+          <p class="text-sm text-muted">Average rating</p>
+        </div>
+      </div>
+      <div>
+        <span class="text-2xl font-bold text-primary-dark">{compatibility}</span>
+        <p class="text-sm text-muted">Compatible</p>
+      </div>
+    </div>
+  </div>
+</section>

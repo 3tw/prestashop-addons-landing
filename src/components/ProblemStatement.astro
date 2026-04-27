@@ -1,0 +1,36 @@
+---
+interface Problem {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  problems: Problem[];
+}
+
+const { problems } = Astro.props;
+---
+
+<section class="bg-white py-16 md:py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-center text-primary-dark">
+      Sound familiar?
+    </h2>
+    <p class="mt-4 text-center text-muted max-w-xl mx-auto">
+      Most PrestaShop stores leave money on the table with their promotional banners.
+    </p>
+    <div class="mt-12 grid gap-8 md:grid-cols-3">
+      {problems.map((problem) => (
+        <div class="rounded-xl bg-white p-6 border-l-4 border-on-dark-subtle">
+          <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-red-50">
+            <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-primary-dark">{problem.title}</h3>
+          <p class="mt-2 text-base text-muted leading-relaxed">{problem.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
