@@ -35,6 +35,8 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
     <!-- Umami analytics -->
     <script defer src="https://cloud.umami.is/script.js" data-website-id="84b94f5c-ad8c-41a9-9db5-0eaef35091e4"></script>
+
+    <slot name="head" />
   </head>
   <body class="font-sans text-muted antialiased">
     <slot />

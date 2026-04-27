@@ -1,0 +1,76 @@
+---
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface ModuleData {
+  name: string;
+  slug: string;
+  meta: { title: string; description: string };
+  pricing: { price: string };
+  ctaUrl: string;
+  faq: FaqItem[];
+}
+
+interface Props {
+  module: ModuleData;
+}
+
+const { module } = Astro.props;
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://betteraddon.com';
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+
+const priceNumeric = module.pricing.price.replace(/[^0-9.]/g, '');
+
+const softwareApplication = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: module.name,
+  description: module.meta.description,
+  url: pageUrl,
+  applicationCategory: 'BusinessApplication',
+  applicationSubCategory: 'PrestaShop Module',
+  operatingSystem: 'PrestaShop 8.0+',
+  softwareRequirements: 'PrestaShop 8.0+, PHP 8.1+, MySQL 5.7+',
+  offers: {
+    '@type': 'Offer',
+    price: priceNumeric,
+    priceCurrency: 'EUR',
+    url: module.ctaUrl,
+    availability: 'https://schema.org/InStock',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Better Addon',
+    url: site,
+  },
+};
+
+const faqPage = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: module.faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Better Addon',
+  url: site,
+  logo: `${site}/favicon.svg`,
+  description: 'Premium modules for PrestaShop merchants.',
+  sameAs: ['https://winkler58.gumroad.com'],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(softwareApplication)} />
+<script type="application/ld+json" set:html={JSON.stringify(faqPage)} />
+<script type="application/ld+json" set:html={JSON.stringify(organization)} />

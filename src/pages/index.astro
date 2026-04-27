@@ -9,9 +9,11 @@ import Screenshots from '../components/Screenshots.astro';
 import Pricing from '../components/Pricing.astro';
 import Faq from '../components/Faq.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import StructuredData from '../components/StructuredData.astro';
 ---
 
 <ModuleLayout title={module.meta.title} description={module.meta.description}>
+  <StructuredData slot="head" module={module} />
   <Hero
     headline={module.headline}
     subheadline={module.subheadline}

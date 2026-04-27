@@ -27,7 +27,15 @@ const { headline, subheadline, ctaText, ctaUrl, socialProof } = Astro.props;
   <div class="pointer-events-none absolute inset-0 bg-primary-dark/70"></div>
 
   <div class="relative mx-auto max-w-6xl px-6 py-28 md:py-40 text-center">
-    <img src={itemsImage.src} class="object-contain max-w-[350px] mx-auto mb-8"/>
+    <img
+      src={itemsImage.src}
+      width={itemsImage.width}
+      height={itemsImage.height}
+      alt="PrestaShop top banner module — countdown, free shipping progress, and welcome banners stacked"
+      fetchpriority="high"
+      decoding="async"
+      class="object-contain max-w-[350px] mx-auto mb-8"
+    />
     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight max-w-4xl mx-auto">
       {headline}
     </h1>
