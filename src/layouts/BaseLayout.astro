@@ -19,7 +19,10 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="canonical" href={canonicalUrl} />
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
@@ -34,11 +37,29 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     <title>{title}</title>
 
     <!-- Umami analytics -->
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="84b94f5c-ad8c-41a9-9db5-0eaef35091e4"></script>
+    <script
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="84b94f5c-ad8c-41a9-9db5-0eaef35091e4"></script>
 
     <slot name="head" />
   </head>
   <body class="font-sans text-muted antialiased">
     <slot />
   </body>
+  <!-- Track outbound events -->
+  <script type="text/javascript">
+    (() => {
+      const name = 'outbound-link-click';
+      document.querySelectorAll('a').forEach((a) => {
+        if (
+          a.host !== window.location.host &&
+          !a.getAttribute('data-umami-event')
+        ) {
+          a.setAttribute('data-umami-event', name);
+          a.setAttribute('data-umami-event-url', a.href);
+        }
+      });
+    })();
+  </script>
 </html>
