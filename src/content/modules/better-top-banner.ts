@@ -122,7 +122,7 @@ export const module = {
     {
       question: 'What versions does it support?',
       answer:
-        'PrestaShop 8.0.x to 8.9.x. PHP 8.1+. MySQL 5.7+. Tested on the Classic theme; works with any theme that registers the standard displayTop hook (Hummingbird, Warehouse, Transformer, custom). Not compatible with PrestaShop 1.7 or 1.6.',
+        'PrestaShop 8+. PHP 8.1+. MySQL 5.7+. Tested on the Classic theme; works with any theme that registers the standard displayTop hook (Hummingbird, Warehouse, Transformer, custom). Not compatible with PrestaShop 1.7 or 1.6.',
     },
     {
       question: 'Will a PrestaShop minor update break it?',
