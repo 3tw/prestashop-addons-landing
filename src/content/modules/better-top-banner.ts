@@ -1,7 +1,7 @@
 export const module = {
   slug: 'better-top-banner',
   name: 'Better Top Banner',
-  headline: 'The top banner module PrestaShop should have shipped with.',
+  headline: 'The ultimate promo banner for PrestaShop',
   subheadline:
     'Replaces simple promo banners and bloated marketing suites. Adds what you actually need: live free-shipping progress, multi-language stacked banners, per-page targeting, CTA tracking, and cart-rule connection.',
   ctaText: 'Get it on Gumroad',
